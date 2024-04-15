@@ -1,3 +1,5 @@
 # 1. jsx
 
-# 2. pdas
+# 2. pdas - Reusable components
+
+# 3. animals - State.
