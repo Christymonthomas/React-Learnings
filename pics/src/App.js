@@ -1,12 +1,18 @@
-import SearchBar from "./Components/SearchBar";
+import { useState } from "react";
+import SearchBar from "./Components/SearchBars";
+import searchImages from "./api";
+import ImageList from "./Components/ImageList";
 
 function App() {
-  const handleSumbit = (term) => {
-    console.log("Do a search with ", term);
+  const [images, setImages] = useState([]);
+  const handleSubmit = async (term) => {
+    const result = await searchImages(term);
+    setImages(result);
   };
   return (
     <div>
-      <SearchBar onSumbit={handleSumbit} />
+      <SearchBar onSubmit={handleSubmit} />
+      <ImageList images={images} />
     </div>
   );
 }
